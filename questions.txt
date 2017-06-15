@@ -1,0 +1,27 @@
+1.  <stdint.h> is a header file that includes definitions for the new integer datatypes are useful in embedded environments where hardware usually supports only several types and that support varies between different environments.
+
+2.  The size of a byte/long/word is up to the compiler writer but The size of a uint8_t/uint32_t/uint16_t is constant. When this is used, every compiler in the world needs to allocate that many bits and treat the value as an unsigned/signed as mentioned.
+
+3.  BYTE - 1
+    DWORD- 4
+    LONG - 4
+    WORD - 2
+    
+4.  The first two bytes are contained in the the BITMAPFILEHEADER  and BITMAPINFOHEADER.
+
+5.  bftype- contained in BITMAPFILE header, has an offset of 0 and is of WORD type.
+    bitype- contained in BITMAPINFO header, has an offset of 14 and is of DWORD type.
+    
+6.   If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+
+7.  biBitcount
+
+8.  If the pointer does not point to any proper address, i.e if the file to be read/written does not exist
+
+9.  Because the third parameter of fread indicates the number of elements being read
+
+10. padding = 3.
+
+11. fseek() sets the file position of the stream to the given offset
+
+12. It is the current position of the file pointer, the position from where offset is added.
