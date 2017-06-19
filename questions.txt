@@ -1,0 +1,23 @@
+0.  Pneumonoultramicroscopicsilicovolcanoconiosis is a lung disease also known as silicosis. It is the longestword in the English dictionary.
+
+1.  getrusage returns resource usage measures for "int who", which is always RUSAGE_SELF in speller.c. Specifying RUSAGE_SELF returns resource usage 
+    statistics for the calling process, which is the sum of resources used by all threads in the process.
+
+2.  There are 16 members in a variable of type struct rusage.
+
+3.  We pass before and after by reference to the function "calculate" because passing large structs by value takes up a lot of memory and makes execution slow.
+    If we're passing or returning structs by value, copies of those structs will get placed on the stack, causing stack overflow.
+    
+4.  The key aspect of the for loop is the c = fgetc(fp) function call. fgetc gets the next unsigned character from fp and advances the position indicator in fp
+    until the end of the file is reached. Each character is then put through an if(if)-elseif-elseif sequence that follows the following construct:
+    a) If the character is in alphabetical character or an apostrophe that is not at index 0 of the word, the character is appended to the word array. 
+    b) Else if the character is a numeric, the word is ignored and we skip ahead to the next word found after a space. 
+    c) Else if we hit a space or punctuation, we terminate the word by appending \0 to the word array because we have presumably traversed a whole word.
+    
+5.  fscanf with a format string like "%s" will read subsequent characters until a whitespace/newline/tab is found.
+    Because words within the txt files may sometimes end with punctuation, fscanf will view them as being a part of the word.
+    Moreover, if a malicious string is read using fscanf it could overwrite important data in memory or in the least, cause segmentation fault.
+    
+6.  To prevent changes to the string that parameter is pointing at through parameter we use the const pointers by changing the data pointed to.
+    The parameters for check and load are declared as const pointers because we want to prevent changes to a read word and the dictionary we are using.
+
